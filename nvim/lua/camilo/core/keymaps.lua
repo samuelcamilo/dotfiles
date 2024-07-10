@@ -26,3 +26,4 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>e", "", { desc = "Explorer Options" }) -- Show Telescope Options
 keymap.set("n", "<leader>f", "", { desc = "Find Options (Telescope)" }) -- Show Telescope Options
+
