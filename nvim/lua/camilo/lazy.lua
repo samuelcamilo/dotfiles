@@ -14,14 +14,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "camilo.plugins" }, { import = "camilo.plugins.lsp" } }, {
-  install = {
-    colorscheme = { "tokyonight-night" }
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
+	install = {
+		colorscheme = { "tokyonight-night" },
+	},
+	checker = {
+		enabled = true,
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
+	},
 })
