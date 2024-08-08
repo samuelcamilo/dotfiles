@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "camilo.plugins" }, { import = "camilo.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "tokyonight-night" },
+		colorscheme = { "catppuccin" },
 	},
 	checker = {
 		enabled = true,
