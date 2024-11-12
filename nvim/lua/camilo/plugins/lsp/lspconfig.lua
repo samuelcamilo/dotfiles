@@ -57,16 +57,15 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- configure html server
-		lspconfig["html"].setup({
+		-- configure typescript server
+		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-
-		-- configure css server
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
+			},
 		})
 
 		-- configure golang server

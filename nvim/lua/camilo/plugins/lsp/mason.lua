@@ -23,6 +23,7 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"gopls",
+				"tsserver",
 				"lua_ls",
 			},
 			automatic_installation = true, -- auto-install configured servers (with lspconfig)

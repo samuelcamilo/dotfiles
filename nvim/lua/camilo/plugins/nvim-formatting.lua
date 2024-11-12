@@ -11,10 +11,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				css = { "prettier" },
-				html = { "prettier" },
 				json = { "prettier" },
-				yaml = { "prettier" },
 				go = { "gofumpt", "goimports-reviser", "golines" },
 				lua = { "stylua" },
 			},
