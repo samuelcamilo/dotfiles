@@ -23,7 +23,9 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"gopls",
+				"rust_analyzer",
 				"tsserver",
+				"sqls",
 				"lua_ls",
 			},
 			automatic_installation = true, -- auto-install configured servers (with lspconfig)

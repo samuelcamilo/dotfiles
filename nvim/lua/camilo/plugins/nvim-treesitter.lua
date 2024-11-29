@@ -30,14 +30,15 @@ return {
 				ensure_installed = {
 					"json",
 					"yaml",
-					"html",
-					"css",
 					"bash",
 					"lua",
 					"vim",
 					"dockerfile",
 					"gitignore",
 					"go",
+					"gomod",
+					"gosum",
+					"rust",
 				},
 				incremental_selection = {
 					enable = true,
