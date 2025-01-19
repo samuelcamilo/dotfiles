@@ -18,6 +18,9 @@ return {
 			opts.desc = "Go to LSP Definition"
 			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
+			opts.desc = "Go to LSP Implementations"
+			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
 			opts.desc = "Go to LSP References"
 			keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
@@ -77,6 +80,7 @@ return {
 			root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 			settings = {
 				gopls = {
+					gofumpt = true,
 					completeUnimported = true,
 					usePlaceholders = true,
 					analyses = {
@@ -85,6 +89,12 @@ return {
 				},
 			},
 		})
+
+		-- configure sqls server
+		-- lspconfig["sqls"].setup({
+		--	capabilities = capabilities,
+		--  on_attach = on_attach,
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
