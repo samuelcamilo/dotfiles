@@ -1,3 +1,7 @@
+-- A customizable statusline plugin for Neovim, displaying mode, file info,
+-- diagnostics, Git status, and more. Supports themes and conditional components
+-- for a clean, informative interface.
+
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
@@ -5,14 +9,17 @@ return {
       'mode',
       fmt = function(str)
         return ' ' .. str
-        -- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
       end,
     }
 
     local filename = {
       'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
-      path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+
+      -- displays file status (readonly status, modified status)
+      file_status = true,
+
+      -- 0 = just filename, 1 = relative path, 2 = absolute path
+      path = 0,
     }
 
     local hide_in_width = function()
@@ -40,7 +47,10 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin', -- Set theme based on environment variable
+
+        -- Set theme based on environment variable
+        theme = 'catppuccin',
+
         -- Some useful glyphs:
         -- https://www.nerdfonts.com/cheat-sheet
         --        
