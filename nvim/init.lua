@@ -1,5 +1,5 @@
-require 'core.options'  -- Load general options
-require 'core.keymaps'  -- Load general keymaps
+require 'core.options' -- Load general options
+require 'core.keymaps' -- Load general keymaps
 require 'core.autocmds' -- Load autocmds
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -21,18 +21,18 @@ require('lazy').setup({
   require 'plugins.neo-tree',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
-  --require 'plugins.lsp',
-  --require 'plugins.autocompletion',
-  --require 'plugins.none-ls',
+  require 'plugins.lsp',
+  require 'plugins.autocompletion',
+  require 'plugins.none-ls',
   require 'plugins.lualine',
   --require 'plugins.bufferline',
-  --require 'plugins.alpha',
+  require 'plugins.alpha',
   --require 'plugins.indent-blankline',
-  --require 'plugins.lazygit',
-  --require 'plugins.comment',
+  require 'plugins.lazygit',
+  require 'plugins.comment',
   --require 'plugins.debug',
   --require 'plugins.database',
-  --require 'plugins.misc',
+  require 'plugins.pairs',
   --require 'plugins.harpoon',
   --require 'plugins.avante',
   --require 'plugins.chatgpt',
