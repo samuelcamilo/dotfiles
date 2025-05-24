@@ -1,3 +1,7 @@
+-- A customizable Neovim dashboard with a logo, quick-access buttons for new files,
+-- file search, grep, and quit. Displays plugin load stats in the footer,
+-- enhancing startup with a clean, interactive interface.
+
 return {
     'goolord/alpha-nvim',
     dependencies = {
@@ -34,17 +38,20 @@ return {
         }
         dashboard.section.buttons.opts.hl = 'AlphaButtons'
 
-        -- Layout
         dashboard.opts.layout = {
-            { type = 'padding', val = 4 }, -- Upper margin
+            -- Upper margin
+            { type = 'padding', val = 4 },
             dashboard.section.header,
-            { type = 'padding', val = 2 }, -- Space between logo and buttons
+
+            -- Space between logo and buttons
+            { type = 'padding', val = 2 },
             dashboard.section.buttons,
-            { type = 'padding', val = 1 }, -- Space between buttons and recent files
+
+            -- Space between buttons and recent files
+            { type = 'padding', val = 1 },
             dashboard.section.footer,
         }
 
-        -- Lazy Loading
         if vim.o.filetype == 'lazy' then
             vim.cmd.close()
             vim.api.nvim_create_autocmd('User', {
@@ -56,10 +63,8 @@ return {
             })
         end
 
-        -- Set the dashbaord
         require('alpha').setup(dashboard.opts)
 
-        -- Draw Footer After Startup
         vim.api.nvim_create_autocmd('User', {
             once = true,
             pattern = 'LazyVimStarted',
@@ -67,7 +72,6 @@ return {
                 local stats = require('lazy').stats()
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 
-                -- Footer
                 dashboard.section.footer.val = '⚡ Neovim loaded ' ..
                 stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
                 pcall(vim.cmd.AlphaRedraw)
