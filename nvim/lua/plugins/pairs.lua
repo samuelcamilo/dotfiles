@@ -2,8 +2,8 @@
 -- Enhances coding efficiency by auto-completing and deleting paired characters, triggered on insert mode.
 
 return {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
-    opts = {},
+  'windwp/nvim-autopairs',
+  event = 'InsertEnter',
+  config = true,
+  opts = {},
 }
