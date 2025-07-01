@@ -25,15 +25,26 @@ return {
         dapui.close()
       end
 
+      dap.configurations.go = {
+        {
+          type = 'go',
+          name = 'Debug',
+          request = 'launch',
+          program = '${workspaceFolder}/app/service/api',
+          outputMode = 'remote',
+          dlvToolPath = vim.fn.exepath 'dlv',
+        },
+      }
+
       vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
       vim.keymap.set('n', '<leader>dB', function()
         dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end, { desc = 'Debug: Set Breakpoint' })
 
       vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Run/Continue' })
-      vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Step Into' })
-      vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Step Over' })
-      vim.keymap.set('n', '<leader>dO', dap.step_out, { desc = 'Step Out' })
+      vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Step Over' })
+      vim.keymap.set('n', '<F3>', dap.step_into, { desc = 'Step Into' })
+      vim.keymap.set('n', '<F4>', dap.step_out, { desc = 'Step Out' })
       vim.keymap.set('n', '<leader>dP', dap.pause, { desc = 'Pause' })
       vim.keymap.set('n', '<leader>dr', dap.repl.toggle, { desc = 'Toggle REPL' })
       vim.keymap.set('n', '<leader>dS', dap.session, { desc = 'Session' })
@@ -42,8 +53,7 @@ return {
         require('dap.ui.widgets').hover()
       end, { desc = 'Widgets' })
 
-      vim.fn.sign_define('DapBreakpoint',
-        { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpoint', { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 
       -- Dap UI setup
       -- For more information, see |:help nvim-dap-ui|
@@ -69,14 +79,14 @@ return {
         layouts = {
           {
             elements = {
-              {
-                id = 'scopes',
-                size = 0.5,
-              },
-              {
-                id = 'breakpoints',
-                size = 0.5,
-              },
+              -- {
+              --   id = 'scopes',
+              --   size = 0.5,
+              -- },
+              -- {
+              --   id = 'breakpoints',
+              --   size = 0.5,
+              -- },
               -- {
               --   id = 'stacks',
               --   size = 0.25,
@@ -89,17 +99,20 @@ return {
             position = 'right',
             size = 50,
           },
-          -- {
-          --   elements = { {
-          --     id = 'repl',
-          --     size = 0.5,
-          --   }, {
-          --     id = 'console',
-          --     size = 0.5,
-          --   } },
-          --   position = 'bottom',
-          --   size = 10,
-          -- },
+          {
+            elements = {
+              {
+                id = 'repl',
+                size = 1.0,
+              },
+              -- {
+              --   id = 'console',
+              --   size = 0.5,
+              -- },
+            },
+            position = 'bottom',
+            size = 10,
+          },
         },
       }
     end,
