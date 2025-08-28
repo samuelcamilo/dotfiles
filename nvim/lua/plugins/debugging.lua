@@ -28,7 +28,7 @@ return {
       dap.configurations.go = {
         {
           type = 'go',
-          name = 'Debug',
+          name = 'API - Debug',
           request = 'launch',
           program = '${workspaceFolder}/app/service/api',
           outputMode = 'remote',
@@ -53,7 +53,8 @@ return {
         require('dap.ui.widgets').hover()
       end, { desc = 'Widgets' })
 
-      vim.fn.sign_define('DapBreakpoint', { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpoint',
+        { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 
       -- Dap UI setup
       -- For more information, see |:help nvim-dap-ui|
