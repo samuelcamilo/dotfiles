@@ -25,16 +25,16 @@ return {
         dapui.close()
       end
 
-      dap.configurations.go = {
-        {
-          type = 'go',
-          name = 'API - Debug',
-          request = 'launch',
-          program = '${workspaceFolder}/app/service/api',
-          outputMode = 'remote',
-          dlvToolPath = vim.fn.exepath 'dlv',
-        },
-      }
+      -- dap.configurations.go = {
+      --   {
+      --     type = 'go',
+      --     name = 'API - Debug',
+      --     request = 'launch',
+      --     program = '${workspaceFolder}/app/service/api',
+      --     outputMode = 'remote',
+      --     dlvToolPath = vim.fn.exepath 'dlv',
+      --   },
+      -- }
 
       vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
       vim.keymap.set('n', '<leader>dB', function()
@@ -53,8 +53,7 @@ return {
         require('dap.ui.widgets').hover()
       end, { desc = 'Widgets' })
 
-      vim.fn.sign_define('DapBreakpoint',
-        { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpoint', { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 
       -- Dap UI setup
       -- For more information, see |:help nvim-dap-ui|

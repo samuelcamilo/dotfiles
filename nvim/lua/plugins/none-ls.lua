@@ -30,7 +30,9 @@ return {
       formatting.stylua,
       formatting.gofumpt,
       formatting.goimports,
-      diagnostics.checkmake,
+      diagnostics.checkmake.with {
+        extra_args = { '--ignore', 'minphony' },
+      },
       formatting.prettier.with { filetypes = { 'json', 'yaml', 'markdown' } },
       formatting.terraform_fmt,
     }
